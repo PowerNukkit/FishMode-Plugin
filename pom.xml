@@ -2,17 +2,31 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>ExamplePlugin</name>
-    <artifactId>example-plugin</artifactId>
+    <name>FishModePlugin</name>
+    <artifactId>fishmode-powernukkit</artifactId>
     <groupId>org.powernukkit.plugins</groupId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
+
+    <licenses>
+        <license>
+            <name>GNU AFFERO GENERAL PUBLIC LICENSE, Version 3</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+        </license>
+    </licenses>
+
+    <repositories>
+        <repository>
+            <id>powernukkit-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
             <groupId>org.powernukkit</groupId>
             <artifactId>powernukkit</artifactId>
-            <version>1.5.2.1-PN</version>
+            <version>1.6.0.0-PN-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

@@ -1,20 +1,6 @@
-# Example Plugin for PowerNukkit
-This is an example plugin which can also be used as template to start your own plugin.
-
-As an example I created a plugin named clone-me, it creates a clone of yourself when you run `/clone`
-and gives you a flower if you hit the clone and then despawn the clone. It also send some fancy messages.
-
-These is enough to serve as an example on how to:
-- Begin a new plugin
-- Create event listeners and handlers
-- Create custom commands
-- Format text
-- Spawn NPCs
-- Despawn NPCs
-- Detect attacks
-- Make entities invulnerable
-- Create and fill a `plugin.yml` file
-- Debug your plugin properly
+# FishMode Plugin
+This plugin was made to address a plugin request where the players should breathe in water 
+and suffocate for lack of oxygen in air, like a fish.
 
 ## Cloning and importing
 1. Just do a normal `git clone https://github.com/PowerNukkit/ExamplePlugin.git` (or the URL of your own git repository)
