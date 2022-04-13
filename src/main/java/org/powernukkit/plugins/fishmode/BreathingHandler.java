@@ -41,7 +41,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import java.util.stream.Collectors;
 
-public class BreathingHandler {
+public final class BreathingHandler {
     @Nonnull
     private final FishModePlugin plugin;
 
@@ -50,6 +50,9 @@ public class BreathingHandler {
 
     @Nullable
     private TaskHandler tickTask;
+
+    @Nullable
+    private TaskHandler bubbleTask;
 
     @Nonnull
     private final  Map<UUID, Boolean> fishes = new WeakHashMap<>();
@@ -136,10 +139,18 @@ public class BreathingHandler {
         }
     }
 
-    protected void onTick(int tickDiff) {
+    private void onTick(int tickDiff) {
         server.getOnlinePlayers().values().forEach(player -> {
-            if (isFishModeActiveTo(player)) {
+            if (isFish(player)) {
                 tickPlayer(player, tickDiff);
+            }
+        });
+    }
+
+    private void sendAirTicks() {
+        server.getOnlinePlayers().values().forEach(player -> {
+            if (isFish(player)) {
+                player.setAirTicks(getAirTicks(player));
             }
         });
     }
@@ -257,6 +268,14 @@ public class BreathingHandler {
             tickTask.cancel();
         }
         tickTask = server.getScheduler().scheduleRepeatingTask(plugin, ()-> onTick(tickRate), tickRate);
+        if (bubbleTask != null) {
+            bubbleTask.cancel();
+        }
+        if (tickRate == 1) {
+            bubbleTask = null;
+        } else {
+            bubbleTask = server.getScheduler().scheduleRepeatingTask(plugin, this::sendAirTicks, 1);
+        }
     }
 
     public boolean isFish(@Nonnull IPlayer player) {

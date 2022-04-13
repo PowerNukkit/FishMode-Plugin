@@ -1,5 +1,5 @@
 # 1 = refresh all players every tick, 2 = every 2 ticks, 3 = every 3 ticks and so on
-tick-rate: 1
+tick-rate: 2
 fish-player:
   # Should the players who are marked as fish be able to breath in non-fish worlds on only in fish worlds?
   only-in-fish-worlds: true
